@@ -27,7 +27,7 @@ public class UserRepository {
     public UserRepository() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.printf("Соединение с БД установлено");
+            System.out.println("Соединение с БД установлено");
         } catch (SQLException e) {
             throw new RuntimeException("Ошибка подключения к БД: " + e.getMessage(), e);
         }
