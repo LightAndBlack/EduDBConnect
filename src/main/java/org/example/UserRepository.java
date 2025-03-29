@@ -52,6 +52,8 @@ public class UserRepository {
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.executeUpdate();
 
+            // Извлекаю автоматически сгенерированный ключ (id) после вставки данных и присваиваю его объекту пользователя.
+            // Обрабатываю результат, если ключ был успешно получен.
             try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     user.setId(generatedKeys.getInt(1));
